@@ -1,0 +1,7 @@
+# Ignore the large model file
+backend/disease_detection/crop_disease_model.h5
+# Ignore all .log files
+*.log
+
+# Ignore temporary files
+*.tmp
