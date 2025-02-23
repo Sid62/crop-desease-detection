@@ -37,8 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'disease_detection',
-    'django_extensions', 
+    'disease_detection', 
 ]
 
 MIDDLEWARE = [
