@@ -1,6 +1,6 @@
 # 🌾 Crop Disease Detection
 
-A Machine Learning-based web application for detecting crop diseases using images. It helps farmers identify crop diseases and provides additional details about them.
+A Machine Learning-based application for detecting crop diseases using images. It helps farmers identify crop diseases and provides additional details about them.
 
 ## 🚀 Features
 ✅ **Disease Prediction** - Upload an image, and the model will predict the disease.
@@ -10,7 +10,7 @@ A Machine Learning-based web application for detecting crop diseases using image
 🚧 **Feedback System** - (Upcoming) Users can give feedback on predictions.
 
 ## 🛠️ Tech Stack
-- **Backend:** Django + FastAPI
+- **Backend:** Django 
 - **Machine Learning:** TensorFlow + CNN Model
 - **Database:** SQLite
 - **Frontend:** (To be integrated)
