@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crop Disease Detection</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <header>
+    <h1>Crop Disease Detection</h1>
+  </header>
+  <main>
+    <section class="upload-section">
+      <h2>Upload an Image</h2>
+      <!-- Crop selection dropdown added -->
+      <label for="cropSelect">Select Crop:</label>
+      <select id="cropSelect">
+        <option value="Corn">Corn</option>
+        <option value="Potato">Potato</option>
+        <option value="Rice">Rice</option>
+        <option value="Sugarcane">Sugarcane</option>
+        <option value="Wheat">Wheat</option>
+      </select>
+      <br><br>
+      <input type="file" id="imageUpload" accept="image/*" onchange="previewImage(event)">
+      <button onclick="predictDisease()">Predict</button>
+      <div id="image-preview" class="hidden">
+        <h3>Uploaded Image:</h3>
+        <img id="preview-img" src="" alt="Uploaded Image">
+      </div>
+    </section>
+
+    <section id="result-section" class="hidden">
+      <h2>Prediction Result</h2>
+      <p id="disease-name"></p>
+      <p id="confidence"></p>
+      <h2>Solution</h2>
+      <p id="solution"></p>
+    </section>
+
+    <section id="history-section">
+      <h2>Prediction History</h2>
+      <ul id="history-list"></ul>
+    </section>
+    
+  </main>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
