@@ -140,3 +140,44 @@ async function fetchSolution(diseaseName) {
         alert("Error while fetching solution. Please try again later.");
     }
 }
+
+
+function fetchBrowserLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+  
+          try {
+            const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`;
+            const response = await fetch(url);
+            const data = await response.json();
+  
+            const city = data.address.city || data.address.town || data.address.village || "Unknown City";
+            const state = data.address.state || "Unknown State";
+            const postcode = data.address.postcode || "Unknown PIN";
+  
+            document.getElementById('location').textContent =
+              `City: ${city}, State: ${state}, PIN: ${postcode}`;
+          } catch (error) {
+            console.error("Reverse geocoding failed:", error);
+            document.getElementById('location').textContent =
+              `Lat: ${latitude.toFixed(4)}, Lng: ${longitude.toFixed(4)} (City info unavailable)`;
+          }
+        },
+        (error) => {
+          console.error("Geolocation error:", error);
+          document.getElementById('location').textContent =
+            "Location access denied or unavailable.";
+        }
+      );
+    } else {
+      document.getElementById('location').textContent =
+        "Geolocation not supported by your browser.";
+    }
+  }
+  
+  window.onload = () => {
+    fetchBrowserLocation();
+  };
+  
